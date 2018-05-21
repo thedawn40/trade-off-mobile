@@ -84,7 +84,7 @@ public class ItemsUpdate extends AppCompatActivity {
         btnSave = (Button) findViewById(R.id.buttonSave);
         imageView = (ImageView) findViewById(R.id.imageView);
 
-        if (data != null) {
+        if (data != null && type.equalsIgnoreCase("update")) {
             bitmapx = null;
             title.setText(data.getJudul().toString());
             description.setText(data.getDeskripsi().toString());
@@ -288,7 +288,7 @@ public class ItemsUpdate extends AppCompatActivity {
             //imagePhoto.setImageBitmap(bitmap)
             bitmapx = baos.toByteArray();
         }
-        else {
+        else if(bitmapx == null && type.equalsIgnoreCase("save")){
             imageView.setImageResource(R.drawable.bg_no_item_city);
             bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
