@@ -89,6 +89,7 @@ public class ItemsUpdate extends AppCompatActivity {
             title.setText(data.getJudul().toString());
             description.setText(data.getDeskripsi().toString());
             datetime.setText(data.getTanggal().toString());
+
             ImageUtil.displayImage(imageView, data.getImage(), null);
 
             //use glide
@@ -140,6 +141,7 @@ public class ItemsUpdate extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -216,7 +218,6 @@ public class ItemsUpdate extends AppCompatActivity {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG, 90, baos);
             imageView.setImageBitmap(bitmap);
-
 
             bitmapx = baos.toByteArray();
 
@@ -295,8 +296,8 @@ public class ItemsUpdate extends AppCompatActivity {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 90, baos);
             //imagePhoto.setImageBitmap(bitmap)
             bitmapx = baos.toByteArray();
+            //output untuk ditulis
         }
-
 
         APIInterfacesRest apiInterface = APIClient.getClient().create(APIInterfacesRest.class);
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), bitmapx);

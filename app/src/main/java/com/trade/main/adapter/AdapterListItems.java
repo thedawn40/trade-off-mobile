@@ -1,5 +1,6 @@
 package com.trade.main.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.trade.main.R;
+import com.trade.main.activity.MainMenu;
 import com.trade.main.servicemodel.itemsmodel.XDetail;
 import com.trade.main.utility.ImageUtil;
 
@@ -79,6 +81,14 @@ public class AdapterListItems extends RecyclerView.Adapter<RecyclerView.ViewHold
                 }
             });
 
+            view.lyt_parent.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+
+                    return false;
+                }
+            });
+
         }
     }
 
@@ -86,5 +96,6 @@ public class AdapterListItems extends RecyclerView.Adapter<RecyclerView.ViewHold
     public int getItemCount() {
         return items.size();
     }
+
 
 }

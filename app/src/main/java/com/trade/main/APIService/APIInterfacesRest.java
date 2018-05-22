@@ -6,6 +6,7 @@ package com.trade.main.APIService;
 
 
 import com.trade.main.servicemodel.itemsmodel.AddItem;
+import com.trade.main.servicemodel.itemsmodel.DeleteItem;
 import com.trade.main.servicemodel.itemsmodel.ItemsModel;
 import com.trade.main.servicemodel.itemsmodel.UpdateItem;
 
@@ -21,31 +22,20 @@ import retrofit2.http.Part;
  * Created by anupamchugh on 09/01/17.
  */
 
- public interface APIInterfacesRest {
+public interface APIInterfacesRest {
 
- @GET("api/x_detail/all")
- Call<ItemsModel> getItems();
-
- @Multipart
- @POST("api/x_detail/update")
- Call<UpdateItem> updateData(
-         @Part("id") RequestBody id,
-         @Part("judul") RequestBody judul,
-         @Part("deskripsi") RequestBody deskripsi,
-         @Part("tanggal") RequestBody tanggal,
-         @Part("link") RequestBody link,
-         @Part MultipartBody.Part image
- );
+    @GET("api/x_detail/all")
+    Call<ItemsModel> getItems();
 
     @Multipart
     @POST("api/x_detail/update")
-    Call<UpdateItem> updateData2(
+    Call<UpdateItem> updateData(
             @Part("id") RequestBody id,
             @Part("judul") RequestBody judul,
             @Part("deskripsi") RequestBody deskripsi,
             @Part("tanggal") RequestBody tanggal,
             @Part("link") RequestBody link,
-            @Part("image") RequestBody image
+            @Part MultipartBody.Part image
     );
 
     @Multipart
@@ -58,9 +48,11 @@ import retrofit2.http.Part;
             @Part MultipartBody.Part image
     );
 
-
-
-
+    @Multipart
+    @POST("api/x_detail/delete")
+    Call<DeleteItem> deleteData(
+            @Part("id") RequestBody id
+    );
 
 }
 
