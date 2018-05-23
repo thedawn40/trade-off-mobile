@@ -163,7 +163,6 @@ public class MainMenu extends AppCompatActivity {
     }
 
 
-
     public void savedb(List<XDetail> items) {
 
         FlowManager.getDatabase(AppController.class)
@@ -207,7 +206,7 @@ public class MainMenu extends AppCompatActivity {
 //            startActivity(intent);
 //
 //        } else {
-            Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
 //        }
         return super.onOptionsItemSelected(item);
     }
