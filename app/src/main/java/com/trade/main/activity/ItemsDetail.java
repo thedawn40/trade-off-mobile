@@ -123,7 +123,7 @@ public class ItemsDetail extends AppCompatActivity {
     public void deleteItem() {
         AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(ItemsDetail.this);
         myAlertBuilder.setTitle("Alert");
-        myAlertBuilder.setMessage("Delete "+data.getJudul().toString()+" ?");
+        myAlertBuilder.setMessage("Delete " + data.getJudul().toString() + " ?");
         myAlertBuilder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -141,9 +141,7 @@ public class ItemsDetail extends AppCompatActivity {
                         progressDialog.dismiss();
                         if (response != null) {
                             Toast.makeText(getApplicationContext(), "Item Deleted", Toast.LENGTH_SHORT).show();
-
-                                SQLite.delete().from(XDetail.class).where(XDetail_Table.id.is(data.getId()));
-
+                            SQLite.delete().from(XDetail.class).where(XDetail_Table.id.is(data.getId()));
                             finish();
                         }
                         try {
@@ -156,7 +154,7 @@ public class ItemsDetail extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<DeleteItem> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(), "Koneksi bermasalah", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Item Deleted", Toast.LENGTH_SHORT).show();
                         SQLite.delete().from(XDetail.class).where(XDetail_Table.id.is(data.getId()));
                         progressDialog.dismiss();
                         finish();

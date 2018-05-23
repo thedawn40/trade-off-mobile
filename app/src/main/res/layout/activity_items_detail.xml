@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".activity.ItemsDetail">
+    tools:context=".activity.ItemsDetail"
+    tools:layout_editor_absoluteY="25dp">
 
     <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
+        android:id="@+id/appBarLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/mdtp_transparent_black">
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <include layout="@layout/toolbar" />
 
@@ -18,95 +22,124 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="224dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="11dp"
         android:background="@color/deep_purple_900"
         android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         app:srcCompat="@drawable/avatar" />
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/purple_50"
-        android:orientation="horizontal"
-        android:padding="10dp">
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
 
-            <LinearLayout
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/judul"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="left"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="61dp"
+                tools:layout_editor_absoluteY="324dp" />
 
-                <TextView
-                    android:id="@+id/judul"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Title"
-                    android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="71dp"
+                tools:layout_editor_absoluteY="366dp" />
+        </TableRow>
 
-                <TextView
-                    android:id="@+id/deskripsi"
-                    android:layout_width="match_parent"
-                    android:layout_height="66dp"
-                    android:text="Description"
-                    android:textSize="20sp" />
+        <TableRow
+            android:layout_width="289dp"
+            android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/tanggal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Datetime"
-                    android:textSize="20sp" />
+            <TextView
+                android:id="@+id/deskripsi"
+                android:layout_width="119dp"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textSize="20sp" />
 
-                <Button
-                    android:id="@+id/update"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/btn_rounded_accent"
-                    android:text="Update"
-                    android:textColor="@color/mdtp_white" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <EditText
+                android:id="@+id/description"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:layout_height="72dp"
+                android:ems="10"
+                android:focusable="false"
+                android:inputType="textMultiLine"
+                tools:layout_editor_absoluteX="91dp"
+                tools:layout_editor_absoluteY="824dp" />
 
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textSize="20sp" />
+        </TableRow>
 
-                <EditText
-                    android:id="@+id/description"
-                    android:layout_width="match_parent"
-                    android:layout_height="66dp"
-                    android:ems="10"
-                    android:inputType="textMultiLine"
-                    android:focusable="false"/>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/datetime"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tanggal"
+                android:layout_width="136dp"
+                android:layout_height="wrap_content"
+                android:text="Datetime"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="31dp"
+                tools:layout_editor_absoluteY="409dp" />
 
-                <Button
-                    android:id="@+id/btnLine"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/btn_rounded_green"
-                    android:text="Join Via Line"
-                    android:textColor="@color/mdtp_white" />
+            <TextView
+                android:id="@+id/datetime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="178dp"
+                tools:layout_editor_absoluteY="366dp" />
+        </TableRow>
 
-            </LinearLayout>
-    </LinearLayout>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-</LinearLayout>
+            <Button
+                android:id="@+id/update"
+                android:layout_width="92dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_rounded_accent"
+                android:text="Update"
+                android:textColor="@color/mdtp_white"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="445dp" />
+
+            <Button
+                android:id="@+id/btnLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_rounded_green"
+                android:text="Join Via Line"
+                android:textColor="@color/mdtp_white"
+                tools:layout_editor_absoluteX="151dp"
+                tools:layout_editor_absoluteY="445dp" />
+
+        </TableRow>
+    </TableLayout>
+
+</android.support.constraint.ConstraintLayout>

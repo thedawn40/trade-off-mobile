@@ -46,6 +46,7 @@ public class MainMenu extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private AdapterListItems mAdapter;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +60,21 @@ public class MainMenu extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainMenu.this, ItemsUpdate.class);
+                Bundle b = new Bundle();
+                b.putString("type", "save");
+                intent.putExtras(b);
+                startActivity(intent);
+            }
+        });
+
         initToolbar();
         getItemsData();
-        initFab();
 
     }
 
@@ -110,11 +123,6 @@ public class MainMenu extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("List Items");
-    }
-
-    private void initFab() {
-        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void setAdapterList(List<XDetail> items) {
@@ -190,17 +198,17 @@ public class MainMenu extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_add) {
-
-            Intent intent = new Intent(MainMenu.this, ItemsUpdate.class);
-            Bundle b = new Bundle();
-            b.putString("type", "save");
-            intent.putExtras(b);
-            startActivity(intent);
-
-        } else {
+//        if (item.getItemId() == R.id.action_add) {
+//
+//            Intent intent = new Intent(MainMenu.this, ItemsUpdate.class);
+//            Bundle b = new Bundle();
+//            b.putString("type", "save");
+//            intent.putExtras(b);
+//            startActivity(intent);
+//
+//        } else {
             Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
-        }
+//        }
         return super.onOptionsItemSelected(item);
     }
 }
